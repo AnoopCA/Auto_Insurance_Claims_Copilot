@@ -1,0 +1,24 @@
+Receive FNOL email
+        ↓
+Check for policy # and insured name > search for Policy > create a claim entry
+If policy details are unavailable respond to email for details
+        ↓
+Review documents received > classify them > store them in portals
+        ↓
+If all documents are received prepare Claim Summary and include the following:
+  Loss Description
+  Parties Involved
+  Damages
+  Other details regarding vehicle claims
+        ↓
+Verify Coverage and process Liability Assessment
+        ↓
+Enter Reserve Recommendation in claims portal
+        ↓
+Review emails for repair Estimate
+        ↓
+Review Repair Estimate and enter Settlement Recommendation in claims portal
+        ↓
+Review claims details and documents and process fraud evaluation and enter it in the claims portal
+        ↓
+Submit claim for supervisor review and claim closure

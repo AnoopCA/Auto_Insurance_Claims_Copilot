@@ -1,24 +1,312 @@
-Receive FNOL email
-        ↓
-Check for policy # and insured name > search for Policy > create a claim entry
-If policy details are unavailable respond to email for details
-        ↓
-Review documents received > classify them > store them in portals
-        ↓
-If all documents are received prepare Claim Summary and include the following:
-  Loss Description
-  Parties Involved
-  Damages
-  Other details regarding vehicle claims
-        ↓
-Verify Coverage and process Liability Assessment
-        ↓
-Enter Reserve Recommendation in claims portal
-        ↓
-Review emails for repair Estimate
-        ↓
-Review Repair Estimate and enter Settlement Recommendation in claims portal
-        ↓
-Review claims details and documents and process fraud evaluation and enter it in the claims portal
-        ↓
-Submit claim for supervisor review and claim closure
+AUTO INSURANCE CLAIM PROCESSING WORKFLOW
+
+1. FNOL INTAKE
+
+Receive Email / Web Submission / Phone FNOL
+↓
+Extract:
+
+* Policy Number
+* Insured Name
+* Loss Date
+* Vehicle Information
+* Contact Information
+* Initial Loss Description
+  ↓
+  Policy Search
+
+Policy Found?
+├── No
+│     ↓
+│  Request Missing Information
+│     ↓
+│  Wait for Response
+│     ↓
+│  Reprocess Submission
+│
+└── Yes
+↓
+Create Claim
+Generate Claim Number
+Create Initial Claim Record
+
+---
+
+2. DOCUMENT INGESTION & CLAIM CORRESPONDENCE
+
+Monitor Email Inbox
+Monitor Claim Portal Uploads
+Monitor External Integrations
+↓
+New Document Received?
+↓
+Classify Document Type
+
+Examples:
+
+* Police Report
+* Accident Photos
+* Repair Estimate
+* Medical Bill
+* Attorney Letter
+* Witness Statement
+* Vehicle Registration
+* Driver License
+* Supplemental Estimate
+* Settlement Documents
+  ↓
+  Store Original File
+  ↓
+  Store Metadata
+  ↓
+  Append Document To Existing Claim
+  ↓
+  Extract Structured Information
+  ↓
+  Update Claim Timeline
+
+Repeat Until Claim Closure
+
+---
+
+3. CLAIM TRIAGE & COMPLETENESS CHECK
+
+Review Available Documents
+↓
+Determine Missing Requirements
+
+Examples:
+
+* Police Report Missing
+* Photos Missing
+* Repair Estimate Missing
+* Statement Missing
+  ↓
+  Missing Information?
+
+├── Yes
+│     ↓
+│  Generate Request To Insured / Claimant
+│     ↓
+│  Wait For Documents
+│     ↓
+│  Re-enter Document Processing
+│
+└── No
+↓
+Continue Investigation
+
+---
+
+4. CLAIM SUMMARY GENERATION
+
+Generate Initial Claim Summary
+
+Include:
+
+* Loss Description
+* Accident Facts
+* Parties Involved
+* Vehicles Involved
+* Damage Summary
+* Injury Information
+* Supporting Documents
+* Open Questions
+* Recommended Next Actions
+
+Store Summary In Claim Portal
+
+---
+
+5. COVERAGE VERIFICATION
+
+Review:
+
+* Policy Status
+* Effective Dates
+* Covered Vehicle
+* Covered Driver
+* Coverage Types
+* Deductibles
+* Policy Limits
+* Exclusions
+
+Coverage Available?
+
+├── No
+│     ↓
+│  Coverage Denial Recommendation
+│     ↓
+│  Supervisor Review
+│     ↓
+│  Claim Closure
+│
+└── Yes
+↓
+Coverage Confirmed
+
+---
+
+6. LIABILITY INVESTIGATION
+
+Analyze:
+
+* Police Report
+* Driver Statements
+* Witness Statements
+* Photos
+* Vehicle Damage Patterns
+* State Regulations
+
+Determine:
+
+* Liability Percentage
+* Comparative Negligence
+* Fault Rationale
+
+Store Liability Assessment
+
+---
+
+7. FRAUD EVALUATION
+
+Review:
+
+* Claim History
+* Prior Loss History
+* Policy Changes Before Loss
+* Duplicate Documents
+* Suspicious Timing
+* Inconsistent Statements
+* Image Analysis Results
+* External Fraud Databases
+
+Fraud Indicators Detected?
+
+├── High Risk
+│     ↓
+│  Refer To SIU (Special Investigation Unit)
+│     ↓
+│  Hold Settlement Recommendation
+│
+└── Low / Medium Risk
+↓
+Continue Processing
+
+Store Fraud Risk Score
+
+---
+
+8. RESERVE RECOMMENDATION
+
+Evaluate:
+
+* Vehicle Damage
+* Injury Exposure
+* Liability Findings
+* Historical Claim Data
+* Litigation Potential
+
+Recommend:
+
+* Property Damage Reserve
+* Bodily Injury Reserve
+* Expense Reserve
+
+Store Reserve Recommendation
+
+Supervisor Approval If Required
+
+---
+
+9. DAMAGE EVALUATION
+
+Review:
+
+* Initial Repair Estimate
+* Supplemental Estimates
+* Total Loss Indicators
+* Salvage Information
+* Rental Exposure
+
+Generate Damage Evaluation Summary
+
+---
+
+10. SETTLEMENT RECOMMENDATION
+
+Evaluate:
+
+* Coverage Findings
+* Liability Findings
+* Reserve Amounts
+* Repair Costs
+* Medical Costs
+* Policy Limits
+* Fraud Results
+
+Generate Settlement Recommendation
+
+Store Recommendation In Claim Portal
+
+---
+
+11. SUPERVISOR REVIEW
+
+Review:
+
+* Claim Summary
+* Coverage Decision
+* Liability Assessment
+* Fraud Evaluation
+* Reserve Recommendation
+* Settlement Recommendation
+
+Approved?
+
+├── No
+│     ↓
+│  Return For Rework
+│
+└── Yes
+↓
+Authorize Payment
+
+---
+
+12. PAYMENT & CLAIM CLOSURE
+
+Issue Payment
+Update Claim Status
+Generate Final Claim Summary
+
+Final Summary Includes:
+
+* Coverage Outcome
+* Liability Outcome
+* Fraud Outcome
+* Payments Issued
+* Reserve Changes
+* Closure Reason
+
+Archive Claim
+Close Claim
+
+
+
+Agentic AI Workflow:
+Intake Agents
+    ↓
+Document & RAG Agents
+    ↓
+Investigation Agents
+    ├─ Coverage Agent
+    ├─ Liability Agent
+    ├─ Fraud Agent
+    └─ Reserve Agent
+    ↓
+Settlement & Closure Agents
+    ├─ Damage Evaluation Agent
+    ├─ Settlement Agent
+    ├─ Supervisor Review Agent
+    └─ Closure Agent
